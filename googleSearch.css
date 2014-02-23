@@ -1,0 +1,358 @@
+
+/*
+  Afshin Mokhtari's solution for Project HTML/CSS at the Odin Project...
+  http://www.theodinproject.com/courses/web-development-101/lessons/html-css
+
+  This is an implementation of the 'difficult' version.
+
+  Bugs:
+ 		. Hover over #search-controls input doesnt work, 
+ 			because hover on search button was triggering it when I had the :hover on #search-controls
+ 			so i chose to put the hover on the search button in the css.
+ 
+ 		. When browsers size is between 856px and 1010px, the Apps-Grid button & Sign-in buttons
+ 			are too far to the right.  C'est la vie.
+		
+		. Web links red underline is too short.
+
+		. Category links show up even if no search has been done!
+
+		. More link's triangle should register the mouse-over, not the 'More' text itself!!
+
+		. Search Button doesn't do anything.  Have to hit return to kick-off a search.
+
+		. Real Search results adds a footer, I dont.
+
+		. Redirection to search results page reload results in empty Search input field!
+
+		. Hovering over cog button doesn't change opacity of cog image; it should.
+
+		. .gsc-control-cse is not responding to my settings, causing too low spacing on search results
+ */
+
+
+* {								/* Poor mans reset! - for everything to have no margins or borders set */
+	margin: 0;
+	padding: 0;
+}
+
+body { 
+	overflow-y: scroll; 		/* force a vertical scrollbar */
+	background: white;		
+}	
+
+a { color: #777; }
+
+
+.sprites {
+	background-image: url('sprites1.png');	/* googles sprite image, I'm not gon be making it from scratch! */
+	background-size: 472px 432px;
+}
+
+
+.google-brand {								/* to position sprite for google title */
+	background-position: -311px -35px;
+	height: 33px;
+	width: 92px;
+	display:block;
+}
+
+
+#toprow {	
+	/* includes Google pic, search bar, microphone pic, search button with magnifying glass
+	   image, the 3 by 3 grid 'Apps' grid, and the Sign in button! */
+	background: #f1f1f1;
+	height: 60px;
+	width: 100%;
+	min-width: 995px;
+}
+
+
+
+
+#left-controls {			/* Includes Google pic, search bar, microphone pic, search button */
+	position: relative;  	/* set context for absolute positioned elts */
+}
+
+#left-controls a {			/* The Google image, its a link too */
+	position: absolute;
+	top: 16px;
+	left: 15px;
+}
+
+
+#search-controls {			/* The input field, microphone pic, and search button */
+	position: absolute;
+	top: 15px;
+	left: 127px;
+	width: 60%;
+	max-width:596px;
+	height: 28px;
+	background: white;
+	border: 1px solid #ccc;
+}
+
+#search-controls input {
+	padding: 5px 9px 0;
+	border: none; 
+	height: auto; 
+	width: 100%; 
+	font: 16px arial,sans-serif;
+	color: #222;	
+	background-image: url(data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D); 
+	background-color: transparent; 
+	z-index: 6; 
+	left: 0px; 
+	outline: none; 
+	background-position: initial initial; 
+	background-repeat: initial initial;	
+}
+
+/* doesnt work like I want
+
+#search-controls input:hover {
+	border-color: #aaa;
+}
+*/
+
+.spkr {
+	position: absolute;
+	top: 3px;
+	right: 6px;
+	background: url(spkr.gif) no-repeat center;
+	background-size: 14px 19px;
+
+	height: 23px;
+	width: 17px;
+
+	opacity: .6;
+	z-index: 100;
+}
+
+.spkr:hover {
+	opacity: 0.8;
+}
+
+
+.btn-srch {
+	position: absolute;
+	top: -1px;
+	right: -60px;
+	background: #4285f4;
+	background: -webkit-linear-gradient(top,#4387fd,#4683ea);	
+	border: none;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	height: 30px;
+	outline: none;
+	padding: 0 0;
+	width: 60px;
+	-webkit-border-radius: 0 2px 2px 0;
+	border-radius: 0 2px 2px 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.btn-srch:hover {
+	box-shadow: 0 1px 0 rgba(0,0,0,.15);
+	border:none !important;
+}
+
+
+.btn-srch-icon {
+	background-image: url('sprites1.png');
+	background-size: 472px 432px;	
+	background-position: -207px -242px;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+}
+
+
+
+/* The stuff flushed right in the top-bar : the Apps grid and Sign-in buttons */
+#grid, #sign-in {
+	display: inline-block;
+	margin-top:15px;
+}
+
+#grid {
+	margin-right: 11px;
+	background-position: -138px -328px;
+	opacity: .55;
+	outline: none;
+	height: 30px;
+	width: 30px;	
+}
+
+#grid:hover {
+	opacity: .8;
+}
+
+
+#sign-in {
+	position: relative;
+	margin-right: 30px;
+}
+
+#sign-in img:hover {
+	box-shadow: 0 1px 0 rgba(0,0,0,.15);
+}
+
+
+
+/*
+ * End of stuff in the #topbar
+ */
+
+
+#categories {
+	width: 100%;
+	min-width: 995px;					/* constrain collapse of the right side floating stuff */
+	height: 59px;
+	border-bottom: 1px solid #ebebeb;
+	font: 16px arial,sans-serif;
+	color: #777;	
+	font-size: 13px;	
+}
+
+#cat-links {
+	position:relative;
+	top:21px;
+	margin-left: 120px;
+	width: 600px;
+}
+
+.clink {
+	display:inline-block;
+	margin: 0 6px 0 8px;
+	height: 35px;
+	padding: 0px 6px 0 8px;	
+	text-align: center;	
+
+	text-decoration: none;
+}
+
+.clink:first-of-type {					/* The 'Web' link */
+	border-bottom: 3px solid #dd4b39;
+	color: #dd4b39;
+	font-weight: bold;
+}
+
+.clink:first-of-type:link{
+	color: #dd4b39;
+}
+
+
+.clink:last-of-type {					/* The 'Search Tools' link */
+	margin-left:16px;					/* nudge it over */
+}
+
+
+.clink:link { 			/* why fails?  had to globally set all <a> to color at top! */
+	color: #777;	
+}
+
+.clink:hover {
+	color: black;
+}
+
+.mn-dwn-arw {			/* The down arrow, next to More link */
+	position: absolute;
+	border-color: #909090 transparent;
+	border-style: solid;
+	border-width: 4px 4px 0 4px;
+	margin-left: 4px;
+	top: 15%;
+}
+
+.mn-dwn-arw:hover {			/* TODO */
+	color: black;
+}
+
+
+
+
+#right-cog {
+	position:relative;
+	right: 28px;
+	top: -23px;
+	width:70px;
+	height:27px;
+	background: #f8f8f8;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	border-radius: 2px 2px 2px 2px;
+	text-align: center;
+}
+
+#right-cog:hover {
+	border: 1px solid #c6c6c6;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	-webkit-transition: all 0.0s;
+	transition: all 0.0s;		
+}
+
+
+#ab_opt_icon {
+	background-position: -42px -259px;
+	height: 17px;
+	margin-top: 4px;
+	width: 17px;
+}
+
+.ab_icon {
+	background: url('sprites2.png') no-repeat;
+	display: inline-block;
+	opacity: 0.667;
+	vertical-align: middle;
+}
+
+/*
+.ab_icon:hover {
+	opacity: 1.0;
+}
+*/
+
+/*
+ * Search Results!
+ */
+
+
+#search_results { 
+	margin-left: 126px;
+	max-width: 570px;			/* totally winging it here! */
+}
+
+/* Styles search results returned from Google Custom Search to match their homepage */
+.gsc-control-cse { padding: 0 !important;}				/* NOT WORKING! */
+.gcsc-branding { display: none;}					/* get rid of google branding message */
+.gsc-above-wrapper-area { border: none !important;}	/* get rid of border */
+.gsc-orderby { display: none;}						/* Hide this button */
+.gs-visibleUrl { 
+		font-size: 14px; 
+		color: #006621 !important; /* The links in the search results */
+} 
+.gs-snippet  { color: #444 !important;}				/* Match colors of search page */
+.gsc-result-info { color: #999 !important;}
+.gsc-cursor-page { margin-right: 12px;}				/* Make more space for links to 10 search pages at bottom */
+.gsc-cursor-page:first-of-type { margin-left:25%; } /* Push those links to the right from left edge */
+
+
+
+
+/*
+ * Misc classes 
+ */
+
+.floatleft 		{ float: left; }
+.floatright		{ float: right; }
+.pointer		{ cursor: pointer; }
+
+
+
+
+/* for debugging
+div { border: 1px dotted blue;}  
+*/

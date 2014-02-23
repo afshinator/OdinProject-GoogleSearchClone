@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- Afshin Mokhtari's solution for Project HTML/CSS at the Odin Project... -->
+<!-- http://www.theodinproject.com/courses/web-development-101/lessons/html-css -->
+
+<!-- This is an implementation of the 'difficult' version. 						-->
+<!-- (Take a look at the CSS file for bug list.)								-->
+
+<html lang="en">
+<head>
+	<title>- Google Search</title>
+	<link href='googleSearch.css' rel='stylesheet' type='text/css'>
+	<script>
+	// Google Custom Search
+	// https://developers.google.com/custom-search/docs/tutorial/implementingsearchbox
+	(function() {
+		var cx = '';		// TODO: Put in your API key here.
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		'//www.google.com/cse/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+	})();
+	</script>
+
+
+</head>
+
+<body>
+	<header>
+		<div id = "toprow" >
+			<div id="left-controls">
+				<a href="." title="Go to Goole Home"><span class="sprites google-brand"></span></a>
+				<div id = "search-controls">
+					<form id="cse-search-box" action="./googleSearch.html">
+						<input id="search" name="q" type="text" autocomplete="off" value="" dir="ltr" spellcheck="false">
+					</form>
+					<span class="spkr pointer"></span>
+					<button class="btn-srch"><span class="btn-srch-icon"></span></button>
+				</div>
+			</div>
+			<div id="right-controls" class="floatright">
+				<div id="grid" class="sprites pointer"><a href="." title="Apps"></a></div>
+				<div id="sign-in"><img src="sign-in-button1.png"></div>
+			</div>
+		</div> <!-- #toprow -->
+
+		<div id = "categories">
+			<div id= "cat-links">
+				<a class="clink" href="#">Web</a>
+				<a class="clink" href="#">Images</a>
+				<a class="clink" href="#">Videos</a>
+				<a class="clink" href="#">Shopping</a>
+				<a class="clink" href="#">News</a>
+				<a class="clink" href="#">More<span class="mn-dwn-arw"></span></a>
+				<a class="clink" href="#">Search tools</a>
+			</div>
+			<div id="right-cog" class="floatright">
+				<span class="ab_icon" title="Options" id="ab_opt_icon" unselectable="on"></span>
+			</div>
+		</div> <!-- #categories -->
+
+	</header>
+
+	<div id = "search_results" >
+		<gcse:searchresults-only></gcse:searchresults-only>
+	</div>
+
+	<footer>
+	</footer>
+</body>
+
+</html>
