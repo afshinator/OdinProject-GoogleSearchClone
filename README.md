@@ -1,4 +1,4 @@
-== My solution for project HTML/CSS at the Odin Project...
+======== My solution for project HTML/CSS at the Odin Project...
 
 Details:  http://www.theodinproject.com/courses/web-development-101/lessons/html-css
 
@@ -9,10 +9,10 @@ I wanted to actually implement the search.  Some searching showed Google has a [
 The Google Custom Search API allows you to not only set up indexing and searching on your own site, but to also make calls to search the whole web, and return those results.  I got it to work after some tweaking, but the downside is the requirement of an API key in line 16 of googleSearch.html.  Get your [API key at:](https://developers.google.com/custom-search/docs/tutorial/creatingcse).
 
 
-  * Here is a snapshot of the Google results page : 
+* Here is a snapshot of the Google results page : 
 ![Google's Search](http://res.cloudinary.com/techblogpics/image/upload/v1393145445/screenshot-googleSearch_xnn5bt.jpg)
 
-  * Here is my version : 
+* Here is my version : 
 ![My Search](http://res.cloudinary.com/techblogpics/image/upload/v1393145445/screenshot-my-googleSearch_gfpb5p.jpg)
 
 There are a bunch of interesting little differences.
