@@ -1,6 +1,6 @@
-# My solution for project HTML/CSS at the Odin Project...
+# My solution for Project HTML/CSS at the Odin Project
 
-Details:  http://www.theodinproject.com/courses/web-development-101/lessons/html-css
+### Details:  http://www.theodinproject.com/courses/web-development-101/lessons/html-css
 
 This is an implementation of the 'difficult' version.   Read further to learn how to make it work.
 
@@ -15,7 +15,7 @@ The Google Custom Search API is what you're suppposed to use these days anyway. 
 ### Here is my version : 
 ![My Search](http://res.cloudinary.com/techblogpics/image/upload/v1393145445/screenshot-my-googleSearch_gfpb5p.jpg)
 
-There are a bunch of interesting little differences.  The most glaring is that Google's search page builds a footer after you run the search... and that's beyond the scope of this little project.
+There are a bunch of interesting little differences.  The most glaring is that Google's search page builds a footer after you run the search, and also images in a right column... and that's beyond the scope of this little project.
 
 
 #### Bugs / Inconsistencies with Google's page:
@@ -41,5 +41,7 @@ There are a bunch of interesting little differences.  The most glaring is that G
 * Hovering over cog button doesn't change opacity of cog image; it should.
 
 * .gsc-control-cse is not responding to my settings, causing too low spacing on search results
+
+* Google's results are certainly a combo of more things than a straight call to the API like I'm making.  Therefore their real results definitely differ.
 
 
