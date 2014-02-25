@@ -12,7 +12,7 @@ Some research showed Google has a [deprecated Web Search API](https://developers
 
 The [Google Custom Search API](https://developers.google.com/custom-search/docs/tutorial/introduction) is what you're suppposed to use these days anyway.  It allows indexing and searching on your own site, but also you can make calls to search the whole web.  So I implemented basic search functionality for kicks, but the downside is the **requirement of an API key** in *line 16 of my googleSearch.html*.  I will not be checking in my API key to this public repo; you can image why!
 
-So... *no live demo* of this puppy, but if you want to make it work, all it takes is to get your own [API key here](https://developers.google.com/custom-search/docs/tutorial/creatingcse), and pop it in as mentioned above.  
+So... *no live demo* of this puppy, but if you want to make it work, all it takes is to get your own [API key here](https://developers.google.com/custom-search/docs/tutorial/creatingcse), and pop it in as mentioned above.      
 
 
 
