@@ -1,3 +1,5 @@
+##Hi I am learning GITHUB
+
 ## My implementation for *Project HTML/CSS* at the Odin Project - Cloning the layout of Google's Search Results Page
 
 ##### Details:  http://www.theodinproject.com/courses/web-development-101/lessons/html-css
